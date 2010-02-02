@@ -1,0 +1,82 @@
+links
+-------------------------------------------
+Links is a graphics and text mode web browser, released under GPL.
+
+Runtime requirements:
+  cygwin-1.7.0-60
+  libbz2_1-1.0.5-10
+  libgcc1-4.3.2-2
+  libjpeg62-6b-20
+  libpng12-1.2.35-10
+  libtiff5-3.8.2-10
+  libX11_6-1.2-10
+  openssl-0.9.8k-2
+  zlib0-1.2.3-10
+
+Build requirements:
+(besides corresponding -devel packages)
+  autoconf2.5-2.63-10
+  automake1.4-1.4p6-10
+  binutils-2.19.51-1
+  cygport-0.9.9-1
+  gawk-3.1.6-2
+  gcc4-core-4.3.2-2
+  make-3.81-2
+  sed-4.1.5-2
+
+Canonical homepage:
+  http://links.twibright.com/
+
+Canonical download:
+  http://links.twibright.com/download/
+
+-------------------------------------------
+
+ Build instructions:
+  unpack links-2.2-X-src.tar.bz2
+    if you use setup to install this src package, it will be
+	 unpacked under /usr/src automatically
+  cd /usr/src
+  cygport ./links-2.2-X.cygport all
+
+This will create:
+  /usr/src/links-2.2-X-src.tar.bz2
+  /usr/src/links-2.2-X.tar.bz2
+
+-------------------------------------------
+
+Files included in the binary package:
+
+  /usr/bin/links.exe
+  /usr/share/applications/links.desktop
+  /usr/share/doc/links/AUTHORS
+  /usr/share/doc/links/BUGS
+  /usr/share/doc/links/COPYING
+  /usr/share/doc/links/ChangeLog
+  /usr/share/doc/links/INSTALL
+  /usr/share/doc/links/NEWS
+  /usr/share/doc/links/README
+  /usr/share/doc/links/TODO
+  /usr/share/doc/links/html/adjusted.png
+  /usr/share/doc/links/html/black-control-rocking.png
+  /usr/share/doc/links/html/black-icon.png
+  /usr/share/doc/links/html/calibration.html
+  /usr/share/doc/links/html/elbow.png
+  /usr/share/doc/links/html/kalibrace.html
+  /usr/share/doc/links/html/picture-crank-0.png
+  /usr/share/doc/links/html/picture-crank-up.png
+  /usr/share/doc/links/html/picture-icon.png
+  /usr/share/doc/links/html/test_pattern.png
+  /usr/share/man/man1/links.1.gz
+  /usr/share/pixmaps/links.xpm
+
+--------------------
+
+Port Notes:
+
+----- version 2.2-2 -----
+Initial release of links-2.x for Cygwin 1.7.
+
+
+Cygwin port maintained by:
+http://sourceware.org/cygwinports/
