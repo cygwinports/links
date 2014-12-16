@@ -1,4 +1,4 @@
-NAME="links2"
+NAME="links"
 VERSION=2.2
 RELEASE=3
 CATEGORY="Web"
@@ -6,7 +6,6 @@ SUMMARY="Graphical and text mode web browser"
 DESCRIPTION="Links is a graphics and text mode web browser, released under GPL."
 HOMEPAGE="http://links.twibright.com/"
 SRC_URI="http://links.twibright.com/download/links-${VERSION}.tar.bz2"
-SRC_DIR="links-${VERSION}"
 PATCH_URI="
 	mirror://portage/www-client/links/files/configure-LANG.patch
 	mirror://gentoo/links-2.1pre33-utf8.diff.bz2
@@ -41,8 +40,8 @@ src_install() {
 	cd ${B}
 	cyginstall
 
-	newicon ${S}/graphics/links.xpm links2.xpm
-	make_desktop_entry "links2 -g" "Links2 Web Browser" links2.xpm "Network;WebBrowser"
+	doicon ${S}/graphics/links.xpm
+	make_desktop_entry "links -g" "Links Web Browser" links.xpm "Network;WebBrowser"
 
 	docinto calibration
 	dodoc ${S}/doc/links_cal/*
