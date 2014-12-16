@@ -1,38 +1,29 @@
 NAME="links"
-VERSION=2.2
-RELEASE=3
+VERSION=2.7
+RELEASE=1
 CATEGORY="Web"
-SUMMARY="Graphical and text mode web browser"
-DESCRIPTION="Links is a graphics and text mode web browser, released under GPL."
+SUMMARY="Text mode web browser"
+DESCRIPTION="Links is a text mode web browser, released under GPL."
 HOMEPAGE="http://links.twibright.com/"
 SRC_URI="http://links.twibright.com/download/links-${VERSION}.tar.bz2"
 PATCH_URI="
-	mirror://portage/www-client/links/files/configure-LANG.patch
-	mirror://gentoo/links-2.1pre33-utf8.diff.bz2
-	http://patch-tracker.debian.org/patch/misc/view/links2/2.2-1/default.c
-	http://patch-tracker.debian.org/patch/misc/view/links2/2.2-1/links.1
-	http://patch-tracker.debian.org/patch/misc/view/links2/2.2-1/mailcap.pl
+	http://pkgs.fedoraproject.org/cgit/links.git/plain/links-2.5-configure.patch?id=df6e9ef
 "
 
-DIFF_EXCLUDES="intl intl-bak language.inc language.h"
 
 src_compile() {
-	cd ${S}/intl
-	./gen-intl || error "gen-intl failed"
-	./synclang || error "synclang failed"
-
 	cd ${S}
+	WANT_AUTOMAKE=1.13
 	cygautoreconf
 
 	cd ${B}
 	cygconf \
-		--program-suffix=2 \
-		--enable-graphics --with-libjpeg --with-libpng --with-libtiff \
 		--with-ssl \
-		--with-x \
-		--with-zlib --with-bzip2 \
+		--with-zlib --with-bzip2 --with-lzma \
 		--without-atheos --without-directfb --without-fb \
 		--without-pmshell --without-svgalib
+#		--enable-graphics --with-libjpeg --with-libpng --with-libtiff \
+#		--with-x \
 	cygmake
 }
 
@@ -40,9 +31,9 @@ src_install() {
 	cd ${B}
 	cyginstall
 
-	doicon ${S}/graphics/links.xpm
-	make_desktop_entry "links -g" "Links Web Browser" links.xpm "Network;WebBrowser"
+#	doicon ${S}/graphics/links.xpm
+#	make_desktop_entry "links -g" "Links Web Browser" links.xpm "Network;WebBrowser"
 
-	docinto calibration
-	dodoc ${S}/doc/links_cal/*
+#	docinto calibration
+#	dodoc ${S}/doc/links_cal/*
 }
